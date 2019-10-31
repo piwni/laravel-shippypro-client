@@ -19,9 +19,9 @@ class ShippyproShipment
         $this->parcels = collect();
     }
     /**
-     * Add parcel to Shipment object
+     * Add parcel to the shipment
      *
-     * @param ShippyproParcel Parcel object, this object will be push to parcels collection
+     * @param ShippyproParcel Parcel object, this object will be pushed to parcels collection
      *
      * @return Shipment parcels collection
      */
@@ -30,11 +30,11 @@ class ShippyproShipment
         return $this->parcels;
     }
     /**
-     * Set Customs declaration to shipment
+     * Set Customs declaration of the shipment
      *
      * @param string $description Custom Declaration description
      * @param string $weight Shipment weight
-     * @param string $quantity  Items in shipment
+     * @param string $quantity Items in shipment
      * @param string $UnitValue
      * @param string $OriginCountry Country code
      * @param string $Currency Currency code
@@ -55,7 +55,7 @@ class ShippyproShipment
         return $this;
     }
     /**
-     * Set shipment from_address
+     * Set from_address of the shipment
      *
      * @param ShippyproAddress $address Sender address
      *
@@ -66,7 +66,7 @@ class ShippyproShipment
         return $this;
     }
     /**
-     * Set shipment to_address
+     * Set to_address of the shipment
      *
      * @param ShippyproAddress $address Recivier address
      *
@@ -78,7 +78,7 @@ class ShippyproShipment
     }
 
     /**
-     * Set shipment insurance
+     * Set insurance of the shipment
      *
      * @param float $value Insurance value
      * @param string $currency Insurance currency
@@ -117,7 +117,7 @@ class ShippyproShipment
     }
 
     /**
-     * Set shipment rate
+     * Set shipment's rate
      *
      * @param ShippyproRate rate Selected carrier rate
      *
@@ -141,7 +141,7 @@ class ShippyproShipment
     }
 
     /**
-     * Get shipment rates
+     * Get shipment's rates
      *
      * @throws \Exception something went wrong on API side
      * @return \yax\ShippyProConnector\Collection\Collection Rates collection

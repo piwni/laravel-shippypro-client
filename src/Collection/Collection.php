@@ -3,7 +3,7 @@
 namespace Piwni\Shippy_pro_connector\Collection;
 
 /**
- * This class extends standard laravel Collection, and add search by key functionality
+ * This class extends standard laravel Collection, and adds a searchByKey functionality
  **/
 class Collection extends \Illuminate\Support\Collection{
 

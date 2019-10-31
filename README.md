@@ -1,8 +1,6 @@
 Shippypro Connector
 =======================
 
-[![Latest Version](https://img.shields.io/github/release/guzzle/guzzle.svg?style=flat-square)](https://github.com/piwni/laravel-shippypro-client)
-
 Shippypro connector is a simply PHP library that allow to integrate Laravel project with Shippypro system.
 You can check Carrier Rates, and Ship orders.
 

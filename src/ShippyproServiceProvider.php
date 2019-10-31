@@ -1,5 +1,5 @@
 <?php
-namespace Piwni\Shippy_pro_connector;
+namespace yax\ShippyProConnector;
 
 class ShippyproServiceProvider extends \Illuminate\Support\ServiceProvider{
     public function boot(){

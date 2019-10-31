@@ -1,7 +1,7 @@
 <?php
 
-namespace Piwni\Shippy_pro_connector\Models;
-use Piwni\Shippy_pro_connector\Services\ShippyProClient;
+namespace yax\ShippyProConnector\Models;
+use yax\ShippyProConnector\Services\ShippyProClient;
 use Illuminate\Support\Collection;
 use phpDocumentor\Reflection\Types\Integer;
 
@@ -144,11 +144,11 @@ class ShippyproShipment
      * Get shipment rates
      *
      * @throws \Exception something went wrong on API side
-     * @return \piwni\Shippy_pro_connector\Collection\Collection Rates collection
+     * @return \yax\ShippyProConnector\Collection\Collection Rates collection
      */
-    public function getRates() : \Piwni\Shippy_pro_connector\Collection\Collection{
+    public function getRates() : \yax\ShippyProConnector\Collection\Collection{
         $rates = $this->client->rates($this);
-        $rates_collection = new \Piwni\Shippy_pro_connector\Collection\Collection();
+        $rates_collection = new \yax\ShippyProConnector\Collection\Collection();
         foreach ($rates->Rates as $r){
             $rates_collection->push(new ShippyproRate($r));
         }

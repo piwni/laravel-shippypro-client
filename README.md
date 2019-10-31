@@ -6,32 +6,37 @@ Shippypro Connector
 Shippypro connector is a simply PHP library that allow to integrate Laravel project with Shippypro system.
 You can check Carrier Rates, and Ship orders.
 
+First you have to publis configuration. Execute command
 ```php
-$sender = new ShippyproAddress('Mateusz Bielak', '/', 'Tadeusza Kościuszki 58', '/', 'Wrocław', 'DS', '50-009', 'PL', '694556711', 'mbielak@ideashirt.pl');
-$recivier = new ShippyproAddress('Mateusz Bielak', '/', 'Tadeusza Kościuszki 58', '/', 'Wrocław', 'DS', '50-009', 'PL', '694556711', 'mbielak@ideashirt.pl');
+    php artisan vendor:publish
+```
+
+Add folowing line to config/app.php to providers array
+
+```php
+'providers' => [
+    ...
+    \yax\ShippyProConnector\ShippyproServiceProvider::class
+],
+```
+
+
+This is example integration
+```php
+$sender = new ShippyproAddress('Jan Kowalski', '/', 'Prosta 20', '/', 'Wrocław', 'DS', '50-419', 'PL', '445544544', 'jankowalski@gmail.com');
+$recivier = new ShippyproAddress('Jan Kowalski', '/', 'Prosta 20', '/', 'Wrocław', 'DS', '50-419', 'PL', '445544544', 'jankowalski@gmail.com');
 $parcel = new ShippyproParcel('30', '20', '20', '10');
 $shipment = new ShippyproShipment(30.00, 'Description');
 $shipment->to_address($recivier);
 $shipment->from_address($sender);
 $shipment->addParcel($parcel);
 $array = $shipment->getRates();
-$rate = $array->searchByKey('carrier', 'Generic');
+$rate = $array->searchByKey('carrier_id', 1081);
 $shipment->setTransactionId(2349);
 if ($rate) {
     $shipment->setRate($rate);
-    $shipment->purchase();
+    $order = $shipment->purchase();
 }
-```
-
-
-## Installing Guzzle
-
-The recommended way to install ShippyproConnector is through
-[Composer](http://getcomposer.org).
-
-```bash
-# Install Composer
-curl -sS https://getcomposer.org/installer | php
 ```
 
 Next, run the Composer command to install the latest stable version of ShippyproConnector:

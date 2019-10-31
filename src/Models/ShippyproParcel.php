@@ -1,6 +1,6 @@
 <?php
 
-namespace Piwni\Shippy_pro_connector\Models;
+namespace yax\ShippyProConnector\Models;
 class ShippyproParcel{
     public $length, $width, $height, $weight;
     public function __construct($length, $width, $height, $weight)

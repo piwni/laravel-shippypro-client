@@ -1,5 +1,5 @@
 {
-    "name": "mateusz/shippy_pro_connector",
+    "name": "yax/ShippyProConnector",
     "description": "Shippypro Connector",
     "type": "library",
     "minimum-stability": "dev",
@@ -11,11 +11,14 @@
         }
     ],
     "require": {
-        "guzzlehttp/guzzle": "^6.4"
+        "guzzlehttp/guzzle": "^6.4",
+        "php": "^7.2",
+        "laravel/framework": "^6.0",
+        "laravel/tinker": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Piwni\\Shippy_pro_connector\\": "src/"
+            "yax\\ShippyProConnector\\": "src/"
         }
     }
 }

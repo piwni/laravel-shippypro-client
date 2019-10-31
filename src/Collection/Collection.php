@@ -1,6 +1,6 @@
 <?php
 
-namespace Piwni\Shippy_pro_connector\Collection;
+namespace yax\ShippyProConnector\Collection;
 
 /**
  * This class extends standard laravel Collection, and adds a searchByKey functionality

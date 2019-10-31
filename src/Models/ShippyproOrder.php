@@ -1,7 +1,7 @@
 <?php
 
-namespace Piwni\Shippy_pro_connector\Models;
-use Piwni\Shippy_pro_connector\Services\ShippyProClient;
+namespace yax\ShippyProConnector\Models;
+use yax\ShippyProConnector\Services\ShippyProClient;
 
 class ShippyproOrder{
     public $OrderID, $LabelURL, $PDF, $ZPL, $CarrierID, $MarketPlacePlatform, $TransactionID, $TrackingCarrier, $TrackingNumber, $TrackingExternalLink, $AdditionalTrackingNumbers, $Status;

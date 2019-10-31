@@ -1,10 +1,10 @@
 <?php
 
-namespace Piwni\Shippy_pro_connector\Services;
-use Piwni\Shippy_pro_connector\Models\ShippyproAddress;
-use Piwni\Shippy_pro_connector\Models\ShippyproShipment;
+namespace yax\ShippyProConnector\Services;
+use yax\ShippyProConnector\Models\ShippyproAddress;
+use yax\ShippyProConnector\Models\ShippyproShipment;
 use Illuminate\Support\Collection;
-use Piwni\Shippy_pro_connector\Services\ShippyProRequest;
+use yax\ShippyProConnector\Services\ShippyProRequest;
 
 /**
  * Shippypro Client that allows to communicate between Model and Request class

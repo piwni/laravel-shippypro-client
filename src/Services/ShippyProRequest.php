@@ -1,6 +1,6 @@
 <?php
 
-namespace Piwni\Shippy_pro_connector\Services;
+namespace yax\ShippyProConnector\Services;
 use GuzzleHttp\Client;
 
 class ShippyProRequest{

@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 use yax\ShippyProConnector\Services\ShippyProRequest;
 
 /**
- * Shippypro Client that allows to communicate between Model and Request class
+ * Shippypro Client that allows to communicate between Model and Request classes
  *
  */
 class ShippyProClient{
@@ -39,12 +39,12 @@ class ShippyProClient{
     }
 
     /**
-     * Allows to order shipment with specify rate
+     * Allows to order shipment with specified rate
      *
      * @param ShippyproShipment $shipment Shipment object with valid Rate information
      *
      * @throws \Exception Shippypro API excepction
-     * @return object Response from Shippypro API, contain order information
+     * @return object Response from Shippypro API, contains order information
      */
     public function ship(ShippyproShipment $shipment){
         try{
@@ -58,12 +58,12 @@ class ShippyProClient{
     }
 
     /**
-     * Allow to get Order from Shippypro by ID
+     * Allows to get an order from Shippypro API by ID
      *
      * @param integer $id Order id
      *
-     * @throws \Exception Shippypro API excepction
-     * @return object Response from Shippypro API, contain order information
+     * @throws \Exception Shippypro API exception
+     * @return object Response from Shippypro API, contains order information
      */
     public function order($id){
         try{

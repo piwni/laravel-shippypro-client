@@ -4,16 +4,6 @@ Shippypro Connector
 Shippypro connector is a simple PHP library that allows to integrate Shippypro into your project.
 You can check carrier rates and ship orders.
 
-First you have to publish configuration. Execute command
-```php
-    php artisan vendor:publish
-```
-After that you have to configure your Shippypro API key in config/shippypro.php
-```php
-    /* This example uses env file but you can paste in this place your API key */
-    'api_key' => env('SHIPPYPRO_API', null),
-```
-
 Add folowing line to config/app.php to providers array
 
 ```php
@@ -21,6 +11,16 @@ Add folowing line to config/app.php to providers array
     ...
     \yax\ShippyProConnector\ShippyproServiceProvider::class
 ],
+```
+
+Then you have to publish configuration. Execute command
+```php
+    php artisan vendor:publish
+```
+After that you have to configure your Shippypro API key in config/shippypro.php
+```php
+    /* This example uses env file but you can paste in this place your API key */
+    'api_key' => env('SHIPPYPRO_API', null),
 ```
 
 

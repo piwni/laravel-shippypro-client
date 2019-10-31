@@ -6,8 +6,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Mateusz Bielak",
-            "email": "mbielak@ideashirt.pl"
+            "name": "Yax interactive",
+            "email": "biuro@yaxint.com"
         }
     ],
     "require": {
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mateusztumatek\\Shippy_pro_connector\\": "src/"
+            "Piwni\\Shippy_pro_connector\\": "src/"
         }
     }
 }

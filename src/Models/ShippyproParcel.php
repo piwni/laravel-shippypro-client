@@ -1,6 +1,6 @@
 <?php
 
-namespace Mateusztumatek\Shippy_pro_connector\Models;
+namespace Piwni\Shippy_pro_connector\Models;
 class ShippyproParcel{
     public $length, $width, $height, $weight;
     public function __construct($length, $width, $height, $weight)
@@ -10,6 +10,12 @@ class ShippyproParcel{
         $this->height = $height;
         $this->weight = $weight;
     }
+
+    /**
+     * Convert Parcel to array
+     *
+     * @return array Parcel parameters array
+     */
     public function toArray(){
         return [
             'length' => (integer) number_format($this->length, 0),

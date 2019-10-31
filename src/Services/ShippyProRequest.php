@@ -1,6 +1,6 @@
 <?php
 
-namespace Mateusztumatek\Shippy_pro_connector\Services;
+namespace Piwni\Shippy_pro_connector\Services;
 use GuzzleHttp\Client;
 
 class ShippyProRequest{
@@ -13,6 +13,15 @@ class ShippyProRequest{
         $this->setHeaders();
     }
 
+    /**
+     * Directly communicate with Shippypro API
+     *
+     * @param array $fields API body array
+     * @param string $method API method
+     *
+     * @throws \Exception Shippypro API excepction
+     * @return object Response from Shippypro API, contain order information
+     */
     public function call(array $fields, $method){
         $client = new Client(['headers' => $this->headers]);
         $response = $client->request('POST', $this->endpoint, ['json' => array_merge(['Params' => $fields], ['Method' => $method])]);
@@ -22,6 +31,12 @@ class ShippyProRequest{
             throw $e;
         }
     }
+
+    /**
+     * Set Guzzle request header and convert API key to Base64 encode
+     *
+     * @return void
+     */
     protected function setHeaders(){
         $key = base64_encode ($this->api_key.':');
         $this->headers = array(

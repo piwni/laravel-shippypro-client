@@ -1,7 +1,7 @@
 <?php
 
-namespace Mateusztumatek\Shippy_pro_connector\Models;
-use Mateusztumatek\Shippy_pro_connector\Services\ShippyProClient;
+namespace Piwni\Shippy_pro_connector\Models;
+use Piwni\Shippy_pro_connector\Services\ShippyProClient;
 use Illuminate\Support\Collection;
 use phpDocumentor\Reflection\Types\Integer;
 
@@ -18,10 +18,30 @@ class ShippyproShipment
         $this->ContentDescription = $ContentDescription;
         $this->parcels = collect();
     }
+    /**
+     * Add parcel to Shipment object
+     *
+     * @param ShippyproParcel Parcel object, this object will be push to parcels collection
+     *
+     * @return Shipment parcels collection
+     */
     public function addParcel(ShippyproParcel $parcel) : Collection{
         $this->parcels->push($parcel);
         return $this->parcels;
     }
+    /**
+     * Set Customs declaration to shipment
+     *
+     * @param string $description Custom Declaration description
+     * @param string $weight Shipment weight
+     * @param string $quantity  Items in shipment
+     * @param string $UnitValue
+     * @param string $OriginCountry Country code
+     * @param string $Currency Currency code
+     * @param string $HSCode Products HSCode
+     *
+     * @return self Shipment object
+     */
     public function setCustomsDeclaration($description, $weight, $quantity, $UnitValue, $OriginCountry, $Currency, $HSCode) : self {
         $arr = [];
         $arr['Description'] = $description;
@@ -34,48 +54,112 @@ class ShippyproShipment
         $this->CN22Info = $arr;
         return $this;
     }
+    /**
+     * Set shipment from_address
+     *
+     * @param ShippyproAddress $address Sender address
+     *
+     * @return self Shipment object
+     */
     public function from_address(ShippyproAddress $address) : self{
         $this->from_address = $address;
         return $this;
     }
-
+    /**
+     * Set shipment to_address
+     *
+     * @param ShippyproAddress $address Recivier address
+     *
+     * @return self Shipment object
+     */
     public function to_address(ShippyproAddress $address) : self{
         $this->to_address = $address;
         return $this;
     }
 
+    /**
+     * Set shipment insurance
+     *
+     * @param float $value Insurance value
+     * @param string $currency Insurance currency
+     *
+     * @return self Shipment object
+     */
     public function setInsurance($value, $currency) : self{
         $this->Insurance = $value;
         $this->InsuranceCurrency = $currency;
         return $this;
     }
 
+    /**
+     * Set cash on delivery
+     *
+     * @param string $currency Currency format
+     *
+     * @return self Shipment object
+     */
     public function setCashOnDelivery($currency) : self{
         $this->CashOnDelivery = 1;
         $this->CashOnDeliveryCurrency = $currency;
         return $this;
     }
+
+    /**
+     * Set transaction ID
+     *
+     * @param integer id
+     *
+     * @return void
+     */
     public function setTransactionId($id){
         $this->TransactionID = 'ORDER'.$id;
         $this->OrderID = 'ORDER'.$id;
     }
+
+    /**
+     * Set shipment rate
+     *
+     * @param ShippyproRate rate Selected carrier rate
+     *
+     * @return void
+     */
     public function setRate(ShippyproRate $rate){
         $this->CarrierName = $rate->carrier;
         $this->CarrierService = $rate->service;
         $this->CarrierID = $rate->carrier_id;
         $this->RateID = $rate->rate_id;
     }
+
+    /**
+     * Purchase shipment
+     *
+     * @throws \Exception something went wrong on API side
+     * @return ShippyproOrder
+     */
     public function purchase(){
         return $this->client->ship($this);
     }
-    public function getRates() : \Mateusztumatek\Shippy_pro_connector\Collection\Collection{
+
+    /**
+     * Get shipment rates
+     *
+     * @throws \Exception something went wrong on API side
+     * @return \piwni\Shippy_pro_connector\Collection\Collection Rates collection
+     */
+    public function getRates() : \Piwni\Shippy_pro_connector\Collection\Collection{
         $rates = $this->client->rates($this);
-        $rates_collection = new \Mateusztumatek\Shippy_pro_connector\Collection\Collection();
+        $rates_collection = new \Piwni\Shippy_pro_connector\Collection\Collection();
         foreach ($rates->Rates as $r){
             $rates_collection->push(new ShippyproRate($r));
         }
         return $rates_collection;
     }
+
+    /**
+     * Convert parcels to array
+     *
+     * @return array Parcels array
+     */
     public function parcelsToArray() : array{
         $array = array();
         foreach ($this->parcels as $parcel){
@@ -83,7 +167,11 @@ class ShippyproShipment
         }
         return $array;
     }
-
+    /**
+     * Convert shipment to array
+     *
+     * @return array Shipment array
+     */
     public function toArray() : array {
         return [
             'from_address' => $this->from_address->toArray(),

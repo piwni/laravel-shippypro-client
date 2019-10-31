@@ -23,7 +23,7 @@ class ShippyproOrder{
     }
 
     /**
-     * Allow get Shippypro Order by ID
+     * Get Shippypro Order data from ShippyPro API by order ID
      *
      * @param integer $id Order id
      *

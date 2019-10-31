@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 class ShippyProRequest{
     protected $api_key, $headers;
     private $endpoint = 'https://www.shippypro.com/api';
-    /*private $endpoint = 'http://127.0.0.1:8002/api/test';*/
+
     public function __construct()
     {
         $this->api_key = config('shippypro.api_key');
@@ -20,7 +20,7 @@ class ShippyProRequest{
      * @param string $method API method
      *
      * @throws \Exception Shippypro API excepction
-     * @return object Response from Shippypro API, contain order information
+     * @return object Response from Shippypro API
      */
     public function call(array $fields, $method){
         $client = new Client(['headers' => $this->headers]);
@@ -33,7 +33,7 @@ class ShippyProRequest{
     }
 
     /**
-     * Set Guzzle request header and convert API key to Base64 encode
+     * Set Guzzle request headers and convert API key to basic auth
      *
      * @return void
      */

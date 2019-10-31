@@ -1,0 +1,22 @@
+{
+    "name": "mateusz/shippy_pro_connector",
+    "description": "Shippypro Connector",
+    "type": "library",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mateusz Bielak",
+            "email": "mbielak@ideashirt.pl"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mateusztumatek\\Shippy_pro_connector\\": "src/"
+        }
+    }
+}
+

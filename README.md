@@ -1,7 +1,7 @@
 Shippypro Connector
 =======================
 
-[![Latest Version](https://img.shields.io/github/release/guzzle/guzzle.svg?style=flat-square)](https://github.com/mateusztumatek/smakeShippyPro)
+[![Latest Version](https://img.shields.io/github/release/guzzle/guzzle.svg?style=flat-square)](https://github.com/piwni/laravel-shippypro-client)
 
 Shippypro connector is a simply PHP library that allow to integrate Laravel project with Shippypro system.
 You can check Carrier Rates, and Ship orders.
@@ -9,6 +9,11 @@ You can check Carrier Rates, and Ship orders.
 First you have to publis configuration. Execute command
 ```php
     php artisan vendor:publish
+```
+After that you have to configure your Shippypro API key in config/shippypro.php
+```php
+    /* This example use env file but you can past in this place your API key */
+    'api_key' => env('SHIPPYPRO_API', null),
 ```
 
 Add folowing line to config/app.php to providers array
@@ -38,30 +43,3 @@ if ($rate) {
     $order = $shipment->purchase();
 }
 ```
-
-Next, run the Composer command to install the latest stable version of ShippyproConnector:
-
-```bash
-composer require mateusztumatek/shippyproconnector
-```
-
-After installing, you need to require Composer's autoloader:
-
-```php
-require 'vendor/autoload.php';
-```
-
-You can then later update Guzzle using composer:
-
- ```bash
-composer update
- ```
-
-
-[guzzle-3-repo]: https://github.com/guzzle/guzzle3
-[guzzle-4-repo]: https://github.com/guzzle/guzzle/tree/4.x
-[guzzle-5-repo]: https://github.com/guzzle/guzzle/tree/5.3
-[guzzle-6-repo]: https://github.com/guzzle/guzzle
-[guzzle-3-docs]: http://guzzle3.readthedocs.org
-[guzzle-5-docs]: http://guzzle.readthedocs.org/en/5.3/
-[guzzle-6-docs]: http://guzzle.readthedocs.org/en/latest/

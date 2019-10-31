@@ -1,6 +1,6 @@
 {
-    "name": "yax/ShippyProConnector",
-    "description": "Shippypro Connector",
+    "name": "yax/laravel-shippy-pro-connector",
+    "description": "Shippypro Connector for Laravel",
     "type": "library",
     "minimum-stability": "dev",
     "license": "MIT",

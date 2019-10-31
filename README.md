@@ -1,16 +1,16 @@
 Shippypro Connector
 =======================
 
-Shippypro connector is a simply PHP library that allow to integrate Laravel project with Shippypro system.
-You can check Carrier Rates, and Ship orders.
+Shippypro connector is a simple PHP library that allows to integrate Shippypro into your project.
+You can check carrier rates and ship orders.
 
-First you have to publis configuration. Execute command
+First you have to publish configuration. Execute command
 ```php
     php artisan vendor:publish
 ```
 After that you have to configure your Shippypro API key in config/shippypro.php
 ```php
-    /* This example use env file but you can past in this place your API key */
+    /* This example uses env file but you can paste in this place your API key */
     'api_key' => env('SHIPPYPRO_API', null),
 ```
 
@@ -24,7 +24,7 @@ Add folowing line to config/app.php to providers array
 ```
 
 
-This is example integration
+This is an example integration
 ```php
 $sender = new ShippyproAddress('Jan Kowalski', '/', 'Prosta 20', '/', 'Wrocław', 'DS', '50-419', 'PL', '445544544', 'jankowalski@gmail.com');
 $recivier = new ShippyproAddress('Jan Kowalski', '/', 'Prosta 20', '/', 'Wrocław', 'DS', '50-419', 'PL', '445544544', 'jankowalski@gmail.com');

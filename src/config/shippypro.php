@@ -1,7 +1,7 @@
 <?php
 
 /**
- * You have to put in this place valid Shippypro Api key, this key will be encoded as Base64
+ * You have to put a valid Shippypro Api key here
  *
  * @return array Configuration array
  */
